@@ -42,12 +42,12 @@
     - 목록 단건조회: find-
     - 검색: search-
 - 하위구조는 아래와 같다
-    L find-board-list
-        L find-board-list.handler.ts
-        L find-board-list.ro.ts
+    L find-user-list
+        L find-user-list.handler.ts
+        L find-user-list.ro.ts
     L find-board
-        L find-board.handler.ts
-        L find-board.ro.ts
+        L find-user.handler.ts
+        L find-user.ro.ts
 ```
 
 ### event
