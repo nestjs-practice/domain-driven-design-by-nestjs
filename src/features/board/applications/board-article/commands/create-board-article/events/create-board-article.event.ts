@@ -4,4 +4,10 @@ export namespace BoardArticleEvent {
       this.userId = userId;
     }
   }
+
+  export class Deleted {
+    constructor(readonly userId: number) {
+      this.userId = userId;
+    }
+  }
 }

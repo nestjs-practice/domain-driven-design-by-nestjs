@@ -13,8 +13,13 @@ export class BoardArticleRepository implements IBoardArticleRepository {
     private readonly repository: Repository<BoardArticleEntity>,
   ) {}
 
-  async create(model: BoardArticle) {
+  async upsert(model: BoardArticle) {
     const entity = BoardArticleMapper.toEntity(model);
     await this.repository.save(entity);
+  }
+
+  async findOneById(id: number) {
+    const entity = await this.repository.findOneBy({ id });
+    return entity ? BoardArticleMapper.toModel(entity) : null;
   }
 }

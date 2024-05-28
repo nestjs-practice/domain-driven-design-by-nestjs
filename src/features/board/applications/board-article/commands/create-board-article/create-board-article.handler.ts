@@ -20,7 +20,6 @@ export class CreateBoardArticleHandler {
     // TODO : user, board에 대한 검증(존재하는지)
     const boardArticle = BoardArticle.create(userId, boardId, dto);
     await this.boardArticleRepository.create(boardArticle);
-    // TODO : 게시글 생성에 대한 event 발행 -> user-analytics board_count 업데이트
     // ! 서브 로직이므로 event객체를 발행해서 업데이트
     this.eventBus.publish(new BoardArticleEvent.Created(userId));
   }

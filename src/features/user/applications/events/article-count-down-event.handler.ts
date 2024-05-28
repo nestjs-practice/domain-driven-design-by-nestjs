@@ -6,22 +6,22 @@ import {
   UserRepositoryToken,
 } from '@/features/user/infrastructure/repository/i.user.repository';
 
-@EventsHandler(BoardArticleEvent.Created)
-export class ArticleCountUpEventHandler implements IEventHandler<BoardArticleEvent.Created> {
+@EventsHandler(BoardArticleEvent.Deleted)
+export class ArticleCountDownEventHandler implements IEventHandler<BoardArticleEvent.Deleted> {
   constructor(
     @Inject(UserRepositoryToken)
     private readonly userRepository: IUserRepository,
   ) {}
 
-  async handle(event: BoardArticleEvent.Created) {
-    Logger.debug('[EVENT] - User Analytics Article Count Up Event Handler');
+  async handle(event: BoardArticleEvent.Deleted) {
+    Logger.debug('[EVENT] - User Analytics Article Count Down Event Handler');
     const { userId } = event;
     const user = await this.userRepository.findUserById(userId);
     if (!user) {
       throw new NotFoundException();
     }
     // * analytics count 업데이트
-    user.getAnalytics().setArticleCountUp();
+    user.getAnalytics().setArticleCountDown();
     await this.userRepository.upsert(user);
   }
 }
