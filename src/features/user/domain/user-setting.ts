@@ -1,6 +1,6 @@
 import { Nullable } from '@/common/type/data-type';
 import { BaseObject } from '@/common/model/base-object';
-import { CreateUserDto } from '@/user/applications/commands/create-user/create-user.dto';
+import { CreateUserDto } from '@/features/user/applications/commands/create-user/create-user.dto';
 
 type Props = {
   userId: number;

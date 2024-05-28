@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
-import { CreateUserHandler } from '@/user/applications/commands/create-user/create-user.handler';
-import { FindUserByIdHandler } from '@/user/applications/queries/find-user-by-id/find-user-by-id.handler';
-import { CreateUserDto } from '@/user/applications/commands/create-user/create-user.dto';
+import { CreateUserHandler } from '@/features/user/applications/commands/create-user/create-user.handler';
+import { FindUserByIdHandler } from '@/features/user/applications/queries/find-user-by-id/find-user-by-id.handler';
+import { CreateUserDto } from '@/features/user/applications/commands/create-user/create-user.dto';
 
 @Controller('users')
 export class UserController {

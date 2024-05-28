@@ -19,7 +19,7 @@ export class CreateBoardArticleHandler {
   async execute(userId: number, boardId: number, dto: CreateBoardArticleDto) {
     // TODO : user, board에 대한 검증(존재하는지)
     const boardArticle = BoardArticle.create(userId, boardId, dto);
-    await this.boardArticleRepository.create(boardArticle);
+    await this.boardArticleRepository.upsert(boardArticle);
     // ! 서브 로직이므로 event객체를 발행해서 업데이트
     this.eventBus.publish(new BoardArticleEvent.Created(userId));
   }

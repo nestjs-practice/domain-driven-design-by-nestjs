@@ -6,6 +6,7 @@ import { BoardRepositoryToken } from '@/features/board/infrastructure/repositori
 import { BoardRepository } from '@/features/board/infrastructure/repositories/board/board.repository';
 import { BoardArticleRepositoryToken } from '@/features/board/infrastructure/repositories/board-article/i.board-article.repository';
 import { BoardArticleRepository } from '@/features/board/infrastructure/repositories/board-article/board-article.repository';
+import { UserModule } from '@/features/user/user.module';
 
 const controllers: Type[] = [];
 
@@ -27,7 +28,7 @@ const repositories: Provider[] = [
 const events: Provider[] = [];
 
 @Module({
-  imports: [TypeOrmModule.forFeature([BoardEntity, BoardArticleEntity])],
+  imports: [TypeOrmModule.forFeature([BoardEntity, BoardArticleEntity]), UserModule],
   controllers: [...controllers],
   providers: [...applications, ...interfaces, ...repositories, ...events],
   exports: [...interfaces],

@@ -1,5 +1,5 @@
-import { UserAccount } from '@/user/domain/user-account';
-import { UserAccountEntity } from '@/user/infrastructure/entity/user-account.entity';
+import { UserAccount } from '@/features/user/domain/user-account';
+import { UserAccountEntity } from '@/features/user/infrastructure/entity/user-account.entity';
 
 export class UserAccountMapper {
   static toEntity(model: UserAccount) {

@@ -1,5 +1,5 @@
-import { UserInfo } from '@/user/domain/user-info';
-import { UserInfoEntity } from '@/user/infrastructure/entity/user-info.entity';
+import { UserInfo } from '@/features/user/domain/user-info';
+import { UserInfoEntity } from '@/features/user/infrastructure/entity/user-info.entity';
 
 export class UserInfoMapper {
   static toEntity(model: UserInfo) {

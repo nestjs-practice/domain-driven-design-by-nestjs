@@ -1,5 +1,5 @@
-import { UserSetting } from '@/user/domain/user-setting';
-import { UserSettingEntity } from '@/user/infrastructure/entity/user-setting.entity';
+import { UserSetting } from '@/features/user/domain/user-setting';
+import { UserSettingEntity } from '@/features/user/infrastructure/entity/user-setting.entity';
 
 export class UserSettingMapper {
   static toEntity(model: UserSetting) {

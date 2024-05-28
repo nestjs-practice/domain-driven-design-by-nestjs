@@ -8,6 +8,8 @@ import { UserAccountEntity } from '@/features/user/infrastructure/entity/user-ac
 import { UserInfoEntity } from '@/features/user/infrastructure/entity/user-info.entity';
 import { UserSettingEntity } from '@/features/user/infrastructure/entity/user-setting.entity';
 import { ArticleCountUpEventHandler } from '@/features/user/applications/events/article-count-up-event.handler';
+import { UserExternalService } from '@/features/user/interfaces/external/user.external.service';
+import { UserAnalyticsEntity } from '@/features/user/infrastructure/entity/user-analytics.entity';
 
 const controllers: Type[] = [];
 
@@ -19,7 +21,7 @@ const applications: Provider[] = [
   FindUserByIdHandler,
 ];
 
-const interfaces: Provider[] = [];
+const interfaces: Provider[] = [UserExternalService];
 
 const repositories: Provider[] = [
   {
@@ -31,8 +33,15 @@ const repositories: Provider[] = [
 const events: Provider[] = [ArticleCountUpEventHandler];
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UserAccountEntity, UserInfoEntity, UserSettingEntity])],
-  providers: [...applications, ...repositories, ...events],
+  imports: [
+    TypeOrmModule.forFeature([
+      UserAccountEntity,
+      UserInfoEntity,
+      UserSettingEntity,
+      UserAnalyticsEntity,
+    ]),
+  ],
+  providers: [...applications, ...repositories, ...events, ...interfaces],
   controllers: [...controllers],
   exports: [...interfaces],
 })

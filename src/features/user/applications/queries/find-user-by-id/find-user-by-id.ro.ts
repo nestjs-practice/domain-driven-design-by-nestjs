@@ -1,7 +1,7 @@
-import { User } from '@/user/domain/user';
-import { UserInfo } from '@/user/domain/user-info';
 import { Nullable } from '@/common/type/data-type';
-import { UserSetting } from '@/user/domain/user-setting';
+import { UserInfo } from '@/features/user/domain/user-info';
+import { UserSetting } from '@/features/user/domain/user-setting';
+import { User } from '@/features/user/domain/user';
 
 class UserInfoRo {
   readonly name: string;

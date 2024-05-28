@@ -48,14 +48,15 @@ export class UserRepository implements IUserRepository {
   }
 
   async findUserById(userId: number): Promise<Nullable<User>> {
-    const [account, info, setting] = await Promise.all([
+    const [account, info, setting, analytics] = await Promise.all([
       this.userAccountRepository.findOneBy({ id: userId }),
       this.userInfoRepository.findOneBy({ userId }),
       this.userSettingRepository.findOneBy({ userId }),
+      this.userAnalyticsRepository.findOneBy({ userId }),
     ]);
-    if (!account || !info || !setting) {
+    if (!account || !info || !setting || !analytics) {
       return null;
     }
-    return UserMapper.toModel(account, info, setting);
+    return UserMapper.toModel(account, info, setting, analytics);
   }
 }
