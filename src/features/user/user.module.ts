@@ -7,6 +7,7 @@ import { CreateUserHandler } from '@/features/user/applications/commands/create-
 import { UserAccountEntity } from '@/features/user/infrastructure/entity/user-account.entity';
 import { UserInfoEntity } from '@/features/user/infrastructure/entity/user-info.entity';
 import { UserSettingEntity } from '@/features/user/infrastructure/entity/user-setting.entity';
+import { ArticleCountUpEventHandler } from '@/features/user/applications/events/article-count-up-event.handler';
 
 const controllers: Type[] = [];
 
@@ -27,7 +28,7 @@ const repositories: Provider[] = [
   },
 ];
 
-const events: Provider[] = [];
+const events: Provider[] = [ArticleCountUpEventHandler];
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserAccountEntity, UserInfoEntity, UserSettingEntity])],
