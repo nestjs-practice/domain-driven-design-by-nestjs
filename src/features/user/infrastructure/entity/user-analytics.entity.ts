@@ -21,6 +21,16 @@ export class UserAnalyticsEntity {
   })
   articleCount: number;
 
+  @Column({
+    name: 'updated_date',
+    type: 'datetime',
+    onUpdate: 'CURRENT_TIMESTAMP',
+    default: () => 'CURRENT_TIMESTAMP',
+    nullable: false,
+    comment: '수정일',
+  })
+  updatedDate?: Date;
+
   constructor(init: UserAnalyticsEntity) {
     Object.assign(this, init);
   }

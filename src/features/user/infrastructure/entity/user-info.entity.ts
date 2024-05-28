@@ -41,6 +41,16 @@ export class UserInfoEntity {
   })
   phone: string;
 
+  @Column({
+    name: 'updated_date',
+    type: 'datetime',
+    onUpdate: 'CURRENT_TIMESTAMP',
+    default: () => 'CURRENT_TIMESTAMP',
+    nullable: false,
+    comment: '수정일',
+  })
+  updatedDate?: Date;
+
   constructor(init: UserInfoEntity) {
     Object.assign(this, init);
   }

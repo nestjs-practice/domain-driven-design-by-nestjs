@@ -1,12 +1,13 @@
 import { BaseObject } from '@/common/model/base-object';
-import { CreateUserDto } from '@/user/applications/commands/create-user/create-user.dto';
 import { Nullable } from '@/common/type/data-type';
+import { CreateUserDto } from '@/features/user/applications/commands/create-user/create-user.dto';
 
 type Props = {
   userId: number;
   name: string;
   birth?: Nullable<Date>;
   phone: string;
+  updatedDate?: Date;
 };
 
 export class UserInfo extends BaseObject<Props> {
@@ -33,5 +34,9 @@ export class UserInfo extends BaseObject<Props> {
 
   getPhone() {
     return this.props.phone;
+  }
+
+  getUpdatedDate() {
+    return this.props.updatedDate;
   }
 }
