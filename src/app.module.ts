@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import mysqlConfig from '@/config/mysql.config';
 import { ormConfig } from '@/config/ormConfig';
-import { UserModule } from '@/user/user.module';
+import { FeatureModule } from '@/features/feature.module';
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { UserModule } from '@/user/user.module';
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync(ormConfig),
-    UserModule,
+    FeatureModule,
   ],
   controllers: [],
   providers: [],

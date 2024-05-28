@@ -1,8 +1,8 @@
-import { UserAccount } from '@/user/domain/user-account';
-import { UserInfo } from '@/user/domain/user-info';
-import { UserSetting } from '@/user/domain/user-setting';
 import { BaseObject } from '@/common/model/base-object';
 import { CreateUserDto } from '@/user/applications/commands/create-user/create-user.dto';
+import { UserAccount } from '@/features/user/domain/user-account';
+import { UserInfo } from '@/features/user/domain/user-info';
+import { UserSetting } from '@/features/user/domain/user-setting';
 
 type Props = {
   account: UserAccount;
