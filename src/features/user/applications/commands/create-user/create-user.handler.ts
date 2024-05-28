@@ -3,7 +3,7 @@ import { Transactional } from 'typeorm-transactional';
 import {
   IUserRepository,
   UserRepositoryToken,
-} from '@/features/user/infrastructure/repository/i.user.repository';
+} from '@/features/user/infrastructure/repository/user/i.user.repository';
 import { CreateUserDto } from '@/features/user/applications/commands/create-user/create-user.dto';
 import { UserAccount } from '@/features/user/domain/user-account';
 import { User } from '@/features/user/domain/user';

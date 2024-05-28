@@ -4,7 +4,7 @@ import { Inject, Logger, NotFoundException } from '@nestjs/common';
 import {
   IUserRepository,
   UserRepositoryToken,
-} from '@/features/user/infrastructure/repository/i.user.repository';
+} from '@/features/user/infrastructure/repository/user/i.user.repository';
 
 @EventsHandler(BoardArticleEvent.Deleted)
 export class ArticleCountDownEventHandler implements IEventHandler<BoardArticleEvent.Deleted> {

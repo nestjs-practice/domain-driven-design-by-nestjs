@@ -2,7 +2,7 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import {
   IUserRepository,
   UserRepositoryToken,
-} from '@/features/user/infrastructure/repository/i.user.repository';
+} from '@/features/user/infrastructure/repository/user/i.user.repository';
 import { FindUserByIdRo } from '@/features/user/applications/queries/find-user-by-id/find-user-by-id.ro';
 
 @Injectable()
